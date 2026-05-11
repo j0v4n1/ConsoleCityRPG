@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace ConsoleCityRPG;
 
-Console.WriteLine("Hello, World!");
+internal static class Program
+{
+    private static void Main(string[] args)
+    {
+        Game game = new();
+        game.Run();
+    }
+}
