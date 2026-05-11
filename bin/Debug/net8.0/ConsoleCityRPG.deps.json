@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ConsoleCityRPG/1.0.0": {
+        "runtime": {
+          "ConsoleCityRPG.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleCityRPG/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

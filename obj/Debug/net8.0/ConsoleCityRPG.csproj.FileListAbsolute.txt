@@ -1,0 +1,14 @@
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\bin\Debug\net8.0\ConsoleCityRPG.exe
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\bin\Debug\net8.0\ConsoleCityRPG.deps.json
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\bin\Debug\net8.0\ConsoleCityRPG.runtimeconfig.json
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\bin\Debug\net8.0\ConsoleCityRPG.dll
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\bin\Debug\net8.0\ConsoleCityRPG.pdb
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.AssemblyInfoInputs.cache
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.AssemblyInfo.cs
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.csproj.CoreCompileInputs.cache
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.dll
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\refint\ConsoleCityRPG.dll
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.pdb
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.genruntimeconfig.cache
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ref\ConsoleCityRPG.dll
