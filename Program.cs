@@ -1,3 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Text;
 
-Console.WriteLine("Hello, World!");
+namespace ConsoleCityRPG;
+
+internal static class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+        Game game = new();
+        game.Run();
+    }
+}

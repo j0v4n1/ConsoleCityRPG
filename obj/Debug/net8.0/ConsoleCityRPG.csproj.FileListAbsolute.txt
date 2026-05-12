@@ -12,3 +12,4 @@ C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\refint\ConsoleCityRPG
 C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.pdb
 C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.genruntimeconfig.cache
 C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ref\ConsoleCityRPG.dll
+C:\projects\ConsoleCityRPG\ConsoleCityRPG\obj\Debug\net8.0\ConsoleCityRPG.sourcelink.json
