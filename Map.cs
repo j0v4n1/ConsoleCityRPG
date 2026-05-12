@@ -2,7 +2,7 @@
 
 public class Map
 {
-    private readonly string[] _map =
+    public string[] City =
     [
         "####################################################################################################",
         "#                                                                                    ###           #",
@@ -22,12 +22,6 @@ public class Map
         "#  УБЕЖИЩЕ   #                                                                                     #",
         "#           ###                                                                                    #",
         "# #############                                                                                    #",
-        "#                                                                                                  #",
-        "#                                                                                                  #",
-        "#                                                                                                  #",
-        "#                                                                                                  #",
-        "#                                                                                                  #",
-        "#                                                                                                  #",
         "#                                                                                    ############# #",
         "#                                                                                    ###           #",
         "#                                                                                      #   ВЫХОД   #",
@@ -35,10 +29,8 @@ public class Map
         "#####################################################################################################"
     ];
 
-    public void RenderMap()
+    public bool CheckWall(int playerX, int playerY)
     {
-        Console.SetCursorPosition(0, 0);
-        foreach (var row in _map) Console.WriteLine(row);
-        Console.ReadLine();
+        return City[playerX][playerY] != '#';
     }
 }
