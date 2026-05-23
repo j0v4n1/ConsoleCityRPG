@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsoleCityRPG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad729cfe0767cac64a1018fca6dbb267a197bb1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77cf1dce9adbb2a31617125142d2c2e9dd6cd070")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsoleCityRPG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsoleCityRPG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,19 +1,17 @@
 ﻿using ConsoleCityRPG.Core;
 using ConsoleCityRPG.Enum;
+using ConsoleCityRPG.Systems;
 
 namespace ConsoleCityRPG.Entities;
 
-public class Building(int coordinateX, int coordinateY) {
+public abstract class Building(int coordinateX, int coordinateY) {
   public int CoordinateX { get; } = coordinateX;
   public int CoordinateY { get; } = coordinateY;
   protected string Name { get; init; } = "Building";
-  public string Icon { get; init; } = "🏠";
+  protected string Icon { get; init; } = "🏠";
 
-  public virtual void OpenMenu() {
+  public virtual void Interact(Player player, EventQueue eventQueue) {
     Console.Clear();
-    Game.ChangeGameState(GameState.InBuilding);
-    Console.WriteLine($"=== {Name}! ===");
-    Console.WriteLine();
-    Console.WriteLine("1. Выход");
+    eventQueue.Add(new GameEvent(EventType.ChangeState, GameState.InBuilding));
   }
 }

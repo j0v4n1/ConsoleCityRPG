@@ -8,7 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Entities\" />
+      <EditorConfigFiles Remove="C:\projects\ConsoleCityRPG\ConsoleCityRPG\.editorconfig" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="C:\projects\ConsoleCityRPG\ConsoleCityRPG\.editorconfig" />
     </ItemGroup>
 
 </Project>

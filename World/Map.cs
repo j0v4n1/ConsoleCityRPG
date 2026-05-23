@@ -2,54 +2,31 @@
 
 namespace ConsoleCityRPG.World;
 
-public class Map {
-  public string[] City = [
-    "🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱",
-    "🧱            🪨                        🧱",
-    "🧱            🪨                    🍺  🧱",
-    "🧱            🪨                        🧱",
-    "🧱            🪨🪨🪨🪨                  🧱",
-    "🧱  🪙                                  🧱",
-    "🧱                      🪨              🧱",
-    "🧱                      🪨              🧱",
-    "🧱🪨🪨🪨🪨🪨            🪨              🧱",
-    "🧱        🪨            🪨              🧱",
-    "🧱                                      🧱",
-    "🧱        🏠                            🧱",
-    "🧱                                      🌀",
-    "🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱"
-  ];
+public class Map(string[] mapTiles) {
+  public string[] MapTiles { get; } = mapTiles;
 
-  public string[] OpenWorld = [
-    "🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱",
-    "🌀                                         🧱",
-    "🧱                                         🧱",
-    "🧱                          👹             🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱                                         🧱",
-    "🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱"
-  ];
-
-  public bool IsWall(int playerCoordinateX, int playerCoordinateY) {
-    return City[playerCoordinateY][playerCoordinateX].ToString() + City[playerCoordinateY][playerCoordinateX + 1] ==
-      "🧱" || City[playerCoordinateY][playerCoordinateX].ToString() + City[playerCoordinateY][playerCoordinateX + 1] ==
-      "🪨";
+  public bool IsWalkableTile(int playerCoordinateX, int playerCoordinateY) {
+    return GetTile(playerCoordinateX, playerCoordinateY).IsWalkable;
   }
 
-  public Building? FindBuildingAt(int playerCoordinateX, int playerCoordinateY, List<Building> buildings) {
+  public Building? FindBuildingAt(int playerCoordinateX, int playerCoordinateY,
+    List<Building> buildings) {
     foreach (var building in buildings) {
-      if (building.CoordinateX == playerCoordinateX && building.CoordinateY == playerCoordinateY) {
+      if (building.CoordinateX == playerCoordinateX &&
+          building.CoordinateY == playerCoordinateY) {
         return building;
       }
     }
 
     return null;
+  }
+
+  public Tile GetTile(int x, int y) {
+    char symbol = MapTiles[y][x];
+    return symbol switch {
+      '#' => new Tile('#', false),
+      '.' => new Tile('.', true),
+      _ => new Tile(symbol, true)
+    };
   }
 }
