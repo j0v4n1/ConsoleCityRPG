@@ -1,16 +1,12 @@
 ﻿using ConsoleCityRPG.Entities;
 using ConsoleCityRPG.Enum;
-using ConsoleCityRPG.Services;
 using ConsoleCityRPG.Systems;
 using ConsoleCityRPG.Ui;
 using ConsoleCityRPG.World;
-
 namespace ConsoleCityRPG.Core;
-
 public class Game {
   private bool _isRunning = true;
   private static GameState _gameState = GameState.Exploration;
-
   public void Run() {
     var eventQueue = new EventQueue();
     var questSystem = new QuestSystem();
@@ -27,8 +23,9 @@ public class Game {
     var inputController = new InputController();
     List<Building> cityBuildings = [tavern, shop, shelter, cityPortal];
     List<Building> worldBuildings = [worldPortal];
+    cityMap.SetBuildings(cityBuildings);
+    worldMap.SetBuildings(worldBuildings);
     var mapManager = new MapManager(cityMap, cityBuildings);
-
     Console.Clear();
     Console.SetCursorPosition(0, 0);
     while (_isRunning) {
@@ -45,24 +42,27 @@ public class Game {
         case GameState.InBuilding:
           break;
       }
-
       foreach (var e in eventQueue.GetAll()) {
         switch (e.Type) {
           case EventType.SwitchWorld:
             if (e.Payload != null) {
               mapManager.SwitchMap((Map)e.Payload);
+              mapManager.SwitchBuildings(((Map)e.Payload).Buildings);
             }
-
             break;
           case EventType.ChangeState:
             if (e.Payload != null) {
               _gameState = (GameState)e.Payload;
             }
-
+            break;
+          case EventType.SwitchBuildings:
+            if (mapManager.CurrentBuildings == cityBuildings)
+              mapManager.SwitchBuildings(worldBuildings);
+            if (mapManager.CurrentBuildings == worldBuildings)
+              mapManager.SwitchBuildings(cityBuildings);
             break;
         }
       }
-
       eventQueue.Clear();
     }
   }
