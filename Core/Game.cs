@@ -25,9 +25,10 @@ public class Game {
     List<Building> worldBuildings = [worldPortal];
     cityMap.SetBuildings(cityBuildings);
     worldMap.SetBuildings(worldBuildings);
-    var mapManager = new MapManager(cityMap, cityBuildings);
+    var mapManager = new MapManager(cityMap, cityBuildings, eventQueue);
     Console.Clear();
     Console.SetCursorPosition(0, 0);
+      // GAME LOOP
     while (_isRunning) {
       Console.CursorVisible = false;
       player.ShowPlayerInfo();
@@ -65,5 +66,6 @@ public class Game {
       }
       eventQueue.Clear();
     }
+    // END GAME LOOP
   }
 }

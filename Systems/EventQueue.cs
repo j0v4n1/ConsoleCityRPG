@@ -1,8 +1,10 @@
 ﻿namespace ConsoleCityRPG.Systems;
 public class EventQueue {
   private readonly List<GameEvent> _events = [];
+  public event Action<GameEvent>? OnEventAdded;
   public void Add(GameEvent gameEvent) {
     _events.Add(gameEvent);
+    OnEventAdded?.Invoke(gameEvent);
   }
   public List<GameEvent> GetAll() {
     return _events;

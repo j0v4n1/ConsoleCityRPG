@@ -1,7 +1,10 @@
 ﻿using ConsoleCityRPG.Entities;
 using ConsoleCityRPG.World;
 namespace ConsoleCityRPG.Systems;
-public class MapManager(Map currentGameMap, List<Building> currentBuildings) {
+public class MapManager(
+  Map currentGameMap,
+  List<Building> currentBuildings,
+  EventQueue eventQueue) {
   public Map CurrentGameMap { get; private set; } = currentGameMap;
   public List<Building> CurrentBuildings { get; private set; } =
     currentBuildings;
