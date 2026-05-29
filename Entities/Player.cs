@@ -2,7 +2,7 @@
 using ConsoleCityRPG.Ui;
 namespace ConsoleCityRPG.Entities;
 public class Player {
-  public char HeroClass { get; } = '@';
+  public const char HeroIcon = '@';
   public int CoordinateY { get; private set; } = 1;
   public int CoordinateX { get; private set; } = 1;
   private int _healthPoints = 100;

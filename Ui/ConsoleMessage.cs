@@ -1,17 +1,10 @@
 ﻿using ConsoleCityRPG.Quests;
 namespace ConsoleCityRPG.Ui;
 public static class ConsoleMessage {
-  public static void WelcomeMessage() {
-    Console.WriteLine("Welcome to Dungeon Adventure!");
-  }
-  public static void NameCharacterMessage() {
-    Console.WriteLine("Name your character!");
-  }
   public static void QuestInfo(Quest quest) {
     Console.SetCursorPosition(40, 0);
     Console.WriteLine("Текущий квест");
     Console.WriteLine(quest.Name);
-    Console.WriteLine(quest.IsCompleted);
     Console.WriteLine(quest.Objectives);
   }
   public static void PlayerInfoMessage(int gold, int healthPoints,

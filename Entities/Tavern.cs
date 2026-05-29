@@ -19,7 +19,7 @@ public class Tavern : Building {
     switch (key) {
       case "1":
         Console.WriteLine("");
-        TakeQuest(player);
+        TakeQuest(player, eventQueue);
         eventQueue.Add(new GameEvent(EventType.ChangeState,
           GameState.Exploration));
         break;
@@ -33,10 +33,13 @@ public class Tavern : Building {
     base.Interact(player, eventQueue);
     OpenMenu(player, eventQueue);
   }
-  private void TakeQuest(Player player) {
-    var quest = new Quest("Помочь трактирщику",
-      "Трактирщик попросил Вас помочь ему избавить от крыс", false, 50,
+  private Quest CreateQuest() {
+    return new Quest("Помочь трактирщику",
+      "Трактирщик попросил Вас помочь ему избавить от крыс", 50,
       [new QuestObjective("Убить 5 крыс", 0, 5)]);
-    _questSystem.AcceptQuest(quest, player);
+  }
+  private void TakeQuest(Player player, EventQueue eventQueue) {
+    var quest = CreateQuest();
+    _questSystem.AcceptQuest(quest, player, eventQueue);
   }
 }

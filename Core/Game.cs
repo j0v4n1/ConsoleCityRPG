@@ -6,9 +6,9 @@ using ConsoleCityRPG.World;
 namespace ConsoleCityRPG.Core;
 public class Game {
   private bool _isRunning = true;
-  private static GameState _gameState = GameState.Exploration;
   public void Run() {
     var eventQueue = new EventQueue();
+    var gameStateManager = new GameStateManager(eventQueue);
     var questSystem = new QuestSystem();
     var player = new Player();
     var cityMap = new Map(MapData.City);
@@ -28,12 +28,12 @@ public class Game {
     var mapManager = new MapManager(cityMap, cityBuildings, eventQueue);
     Console.Clear();
     Console.SetCursorPosition(0, 0);
-      // GAME LOOP
+    // GAME LOOP
     while (_isRunning) {
       Console.CursorVisible = false;
       player.ShowPlayerInfo();
       player.ShowQuestInfo();
-      switch (_gameState) {
+      switch (gameStateManager.GameState) {
         case GameState.Exploration:
           renderer.Render(mapManager.CurrentGameMap, mapManager, player);
           var input = inputController.GetKey();
@@ -43,28 +43,6 @@ public class Game {
         case GameState.InBuilding:
           break;
       }
-      foreach (var e in eventQueue.GetAll()) {
-        switch (e.Type) {
-          case EventType.SwitchWorld:
-            if (e.Payload != null) {
-              mapManager.SwitchMap((Map)e.Payload);
-              mapManager.SwitchBuildings(((Map)e.Payload).Buildings);
-            }
-            break;
-          case EventType.ChangeState:
-            if (e.Payload != null) {
-              _gameState = (GameState)e.Payload;
-            }
-            break;
-          case EventType.SwitchBuildings:
-            if (mapManager.CurrentBuildings == cityBuildings)
-              mapManager.SwitchBuildings(worldBuildings);
-            if (mapManager.CurrentBuildings == worldBuildings)
-              mapManager.SwitchBuildings(cityBuildings);
-            break;
-        }
-      }
-      eventQueue.Clear();
     }
     // END GAME LOOP
   }

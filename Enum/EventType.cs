@@ -2,5 +2,5 @@
 public enum EventType {
   SwitchWorld,
   ChangeState,
-  SwitchBuildings
+  QuestAccepted
 }
