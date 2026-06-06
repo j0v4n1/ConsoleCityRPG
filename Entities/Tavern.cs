@@ -1,45 +1,59 @@
 ﻿using ConsoleCityRPG.Enum;
 using ConsoleCityRPG.Quests;
 using ConsoleCityRPG.Systems;
+
 namespace ConsoleCityRPG.Entities;
-public class Tavern : Building {
-  private QuestSystem _questSystem;
-  public Tavern(int coordinateX, int coordinateY, QuestSystem questSystem) :
-    base(coordinateX, coordinateY) {
-    Name = "Таверна";
-    Icon = "🍺";
-    _questSystem = questSystem;
-  }
-  private void OpenMenu(Player player, EventQueue eventQueue) {
-    Console.WriteLine($"=== {Name} {Icon}! ===");
-    Console.WriteLine();
-    Console.WriteLine("1. Взять квест");
-    Console.WriteLine("2. Выход");
-    var key = Console.ReadLine();
-    switch (key) {
-      case "1":
-        Console.WriteLine("");
-        TakeQuest(player, eventQueue);
-        eventQueue.Add(new GameEvent(EventType.ChangeState,
-          GameState.Exploration));
-        break;
-      case "2":
-        eventQueue.Add(new GameEvent(EventType.ChangeState,
-          GameState.Exploration));
-        break;
+
+public class Tavern : Building
+{
+    private QuestSystem _questSystem;
+
+    public Tavern(int coordinateX, int coordinateY, QuestSystem questSystem) :
+        base(coordinateX, coordinateY)
+    {
+        Name = "Таверна";
+        Icon = "🍺";
+        _questSystem = questSystem;
     }
-  }
-  public override void Interact(Player player, EventQueue eventQueue) {
-    base.Interact(player, eventQueue);
-    OpenMenu(player, eventQueue);
-  }
-  private Quest CreateQuest() {
-    return new Quest("Помочь трактирщику",
-      "Трактирщик попросил Вас помочь ему избавить от крыс", 50,
-      [new QuestObjective("Убить 5 крыс", 0, 5)]);
-  }
-  private void TakeQuest(Player player, EventQueue eventQueue) {
-    var quest = CreateQuest();
-    _questSystem.AcceptQuest(quest, player, eventQueue);
-  }
+
+    private void OpenMenu(Player player, EventQueue eventQueue)
+    {
+        Console.WriteLine($"=== {Name} {Icon}! ===");
+        Console.WriteLine();
+        Console.WriteLine("1. Взять квест");
+        Console.WriteLine("2. Выход");
+        var key = Console.ReadLine();
+        switch (key)
+        {
+            case "1":
+                Console.WriteLine("");
+                TakeQuest(player, eventQueue);
+                eventQueue.Add(new GameEvent(EventType.ChangeState,
+                    GameState.Exploration));
+                break;
+            case "2":
+                eventQueue.Add(new GameEvent(EventType.ChangeState,
+                    GameState.Exploration));
+                break;
+        }
+    }
+
+    public override void Interact(Player player, EventQueue eventQueue)
+    {
+        base.Interact(player, eventQueue);
+        OpenMenu(player, eventQueue);
+    }
+
+    private Quest CreateQuest()
+    {
+        return new Quest("Помочь трактирщику",
+            "Трактирщик попросил Вас помочь ему избавить от крыс", 50,
+            [new QuestObjective("Убить 5 крыс", 0, 5)]);
+    }
+
+    private void TakeQuest(Player player, EventQueue eventQueue)
+    {
+        var quest = CreateQuest();
+        _questSystem.AcceptQuest(quest, player, eventQueue);
+    }
 }

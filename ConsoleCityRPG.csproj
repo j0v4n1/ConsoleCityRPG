@@ -8,11 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <EditorConfigFiles Remove="C:\projects\ConsoleCityRPG\ConsoleCityRPG\.editorconfig" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Include="C:\projects\ConsoleCityRPG\ConsoleCityRPG\.editorconfig" />
+        <EditorConfigFiles Remove="C:\projects\ConsoleCityRPG\ConsoleCityRPG\.editorconfig"/>
+        <EditorConfigFiles Remove=".editorconfig"/>
     </ItemGroup>
 
 </Project>

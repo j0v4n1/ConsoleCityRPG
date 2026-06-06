@@ -1,6 +1,7 @@
 ﻿namespace ConsoleCityRPG.Enum;
 
-public enum GameState {
-  Exploration,
-  InBuilding
+public enum GameState
+{
+    Exploration,
+    InBuilding
 }
