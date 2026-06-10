@@ -6,7 +6,7 @@ namespace ConsoleCityRPG.Ui;
 
 public class Renderer
 {
-    private void DrawMap(Map map, string[] mapTiles)
+    private void RenderMap(Map map, string[] mapTiles)
     {
         Console.SetCursorPosition(0, 0);
         for (int y = 0; y < mapTiles.Length; y++)
@@ -20,15 +20,31 @@ public class Renderer
         }
     }
 
-    private void DrawPlayer(int x, int y, char player)
+    private void RenderPlayer(int x, int y, char player)
     {
         Console.SetCursorPosition(x, y);
         Console.Write(player);
     }
 
+    private void RenderMonsters(MapManager mapManager)
+    {
+        foreach (var monster in mapManager.Monsters)
+        {
+            Console.SetCursorPosition(monster.Position.X, monster.Position.Y);
+            Console.WriteLine(monster.Icon);
+        }
+    }
+
     public void Render(MapManager mapManager, Player player)
     {
-        DrawMap(mapManager.CurrentGameMap, mapManager.CurrentGameMap.MapTiles);
-        DrawPlayer(player.CoordinateX, player.CoordinateY, Player.HeroIcon);
+        RenderMap(mapManager.CurrentGameMap, mapManager.CurrentGameMap.MapTiles);
+
+        if (mapManager.CurrentGameMap.MapTiles == MapData.World &&
+            mapManager.Monsters.Count > 0)
+        {
+            RenderMonsters(mapManager);
+        }
+
+        RenderPlayer(player.CoordinateX, player.CoordinateY, Player.HeroIcon);
     }
 }

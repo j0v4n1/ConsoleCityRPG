@@ -13,7 +13,7 @@ public class GameStateManager
 
     private void HandleEvent(GameEvent gameEvent)
     {
-        if (gameEvent.Type == EventType.ChangeState)
+        if (gameEvent is { Type: EventType.ChangeState, Payload: not null })
         {
             GameState = (GameState)gameEvent.Payload;
         }

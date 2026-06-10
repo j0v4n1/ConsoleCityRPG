@@ -5,5 +5,7 @@ public enum EventType
     SwitchWorld,
     ChangeState,
     QuestAccepted,
-    SpawnMonster
+    SpawnMonster,
+    EnterBuilding,
+    EnterCombat,
 }

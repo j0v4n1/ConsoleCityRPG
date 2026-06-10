@@ -12,8 +12,7 @@ public class Map(string[] mapTiles)
         return GetTile(playerCoordinateX, playerCoordinateY).IsWalkable;
     }
 
-    public Building?
-        FindBuildingAt(int playerCoordinateX, int playerCoordinateY)
+    public Building? FindBuildingAt(int playerCoordinateX, int playerCoordinateY)
     {
         foreach (var building in Buildings)
         {
@@ -29,7 +28,7 @@ public class Map(string[] mapTiles)
 
     public Tile GetTile(int x, int y)
     {
-        char symbol = MapTiles[y][x];
+        var symbol = MapTiles[y][x];
         return symbol switch
         {
             '#' => new Tile('#', false),

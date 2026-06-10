@@ -1,3 +1,3 @@
 ﻿namespace ConsoleCityRPG.Entities;
 
-public record Position(int x, int y);
+public record Position(int X, int Y);

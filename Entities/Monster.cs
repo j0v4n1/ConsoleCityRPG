@@ -1,11 +1,10 @@
 ﻿namespace ConsoleCityRPG.Entities;
 
-public class Monster
+public class Monster(Position position, string name)
 {
-    public Position Position { get; set; }
-
-    public Monster(Position position)
-    {
-        Position = position;
-    }
+    public Position Position { get; set; } = position;
+    public string Name { get; set; } = name;
+    public char Icon { get; set; } = 'M';
+    public int Health { get; private set; } = 15;
+    public int Attack { get; private set; } = 5;
 }

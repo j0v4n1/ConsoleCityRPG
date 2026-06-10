@@ -8,7 +8,7 @@ public class Player
     public const char HeroIcon = '@';
     public int CoordinateY { get; private set; } = 1;
     public int CoordinateX { get; private set; } = 1;
-    private int _healthPoints = 100;
+    public int Health { get; private set; } = 100;
     private int _manaPoints = 100;
     private int _gold = 100;
     private int _attackPower = 5;
@@ -31,7 +31,7 @@ public class Player
 
     public void ShowPlayerInfo()
     {
-        Ui.ConsoleMessage.PlayerInfoMessage(_gold, _healthPoints, _manaPoints,
+        ConsoleMessage.PlayerInfoMessage(_gold, Health, _manaPoints,
             _attackPower, _defense, CoordinateX, CoordinateY);
     }
 

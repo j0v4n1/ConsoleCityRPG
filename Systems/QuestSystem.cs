@@ -6,9 +6,31 @@ namespace ConsoleCityRPG.Systems;
 
 public class QuestSystem
 {
-    public void AcceptQuest(Quest quest, Player player, EventQueue eventQueue)
+    private readonly Player _player;
+    private readonly EventQueue _eventQueue;
+
+    public QuestSystem(Player player, EventQueue eventQueue)
     {
-        player.AddQuest(quest);
-        eventQueue.Add(new GameEvent(EventType.QuestAccepted));
+        _player = player;
+        _eventQueue = eventQueue;
+
+        eventQueue.OnEventAdded += HandleEvent;
+    }
+
+    private void HandleEvent(GameEvent gameEvent)
+    {
+        if (gameEvent.Type == EventType.QuestAccepted)
+        {
+            var quest = CreateQuest();
+            _player.AddQuest(quest);
+            _eventQueue.Add(new GameEvent(EventType.SpawnMonster, "Крыса"));
+        }
+    }
+
+    private Quest CreateQuest()
+    {
+        return new Quest("Помочь трактирщику",
+            "Трактирщик попросил Вас помочь ему избавить от крыс", 50,
+            [new QuestObjective("Убить 5 крыс", 0, 5)]);
     }
 }

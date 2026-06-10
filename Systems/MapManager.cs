@@ -30,14 +30,10 @@ public class MapManager
 
     private void HandleEvent(GameEvent gameEvent)
     {
-        if (gameEvent.Type == EventType.SwitchWorld)
-        {
-            var map = (Map?)gameEvent.Payload;
-            if (map != null)
-            {
-                SwitchMap(map);
-                SwitchBuildings(map.Buildings);
-            }
-        }
+        if (gameEvent.Type != EventType.SwitchWorld) return;
+        var map = (Map?)gameEvent.Payload;
+        if (map == null) return;
+        SwitchMap(map);
+        SwitchBuildings(map.Buildings);
     }
 }

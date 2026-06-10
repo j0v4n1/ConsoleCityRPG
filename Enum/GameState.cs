@@ -3,5 +3,6 @@
 public enum GameState
 {
     Exploration,
-    InBuilding
+    InBuilding,
+    Combat
 }
