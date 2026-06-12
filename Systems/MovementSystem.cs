@@ -9,7 +9,8 @@ public class MovementSystem(EventQueue eventQueue)
     private void TryMove(Player player, Map map, int deltaX, int deltaY, MapManager mapManager)
     {
         var monster = mapManager.Monsters.FirstOrDefault(m =>
-            m.Position.X == player.CoordinateX + deltaX && m.Position.Y == player.CoordinateY + deltaY);
+            m.Position.X == player.CoordinateX + deltaX && m.Position.Y == player.CoordinateY + deltaY &&
+            mapManager.CurrentGameMap.MapTiles == MapData.World);
 
         if (monster != null)
         {

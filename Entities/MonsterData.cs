@@ -2,8 +2,41 @@
 
 public static class MonsterData
 {
-    public static string[] Knight =
+    private static readonly string[] MonsterWalkFrame1 =
     [
-        " .\n  / \\\n  | |\n  |.|\n  |.|\n  |:|      __\n,_|:|_,   /  )\n  (Oo    / _I_\n   +\\ \\  || __|\n      \\ \\||___|\n        \\ /.:.\\-\\\n         |.:. /-----\\\n         |___|::oOo::|\n         /   |:<_T_>:|\n        |_____\\ ::: /\n         | |  \\ \\:/\n         | |   | |\n         \\ /   | \\__\n         / |   \\____\\\n         `-'"
+        " __      ___ ",
+        " ' \\, ,/ . '",
+        "    \" -'    ",
+        "             "
+    ];
+
+
+    private static readonly string[] MonsterWalkFrame2 =
+    [
+        "\\         /  ",
+        " \\__, ,__/.  ",
+        "    \" -'     ",
+        "              "
+    ];
+
+    private static readonly string[] MonsterWalkFrame3 =
+    [
+        "              ",
+        "    , ,       ",
+        "  .'\" -'.    ",
+        "  \\     /    "
+    ];
+
+    public static readonly string[] MonsterWalkFrame4 =
+    [
+        "              ",
+        "    , ,       ",
+        "   ,\" -\\    ",
+        "   |,  |;     "
+    ];
+
+    public static readonly string[][] MonsterWalkFrames =
+    [
+        MonsterWalkFrame1, MonsterWalkFrame2, MonsterWalkFrame3, MonsterWalkFrame4
     ];
 }

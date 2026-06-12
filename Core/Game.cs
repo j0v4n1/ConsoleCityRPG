@@ -36,14 +36,22 @@ public class Game
         new MonsterSpawner(eventQueue, mapManager, MapData.World);
         var buildingSystem = new BuildingSystem(eventQueue);
         var combatSystem = new CombatSystem(eventQueue, player);
+        var animationSystem = new AnimationSystem();
         Console.Clear();
         Console.SetCursorPosition(0, 0);
-
+        // foreach (var str in MonsterData.MonsterWalkFrame4)
+        // {
+        //     Console.WriteLine(str);
+        // }
         while (_isRunning)
         {
             Console.CursorVisible = false;
-            player.ShowPlayerInfo();
-            player.ShowQuestInfo();
+            if (gameStateManager.GameState != GameState.Combat)
+            {
+                player.ShowPlayerInfo();
+                player.ShowQuestInfo();
+            }
+
             Console.SetCursorPosition(40, 10);
             Console.WriteLine(gameStateManager.GameState);
             switch (gameStateManager.GameState)
@@ -56,7 +64,7 @@ public class Game
                     buildingSystem.Update(eventQueue);
                     break;
                 case GameState.Combat:
-                    combatSystem.Update();
+                    combatSystem.Update(animationSystem);
                     break;
             }
         }

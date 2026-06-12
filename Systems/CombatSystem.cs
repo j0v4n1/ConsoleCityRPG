@@ -7,7 +7,7 @@ public class CombatSystem
 {
     private Monster? _currentMonster;
     private readonly Player _player;
-    private bool _isPlayerTurn = true;
+    // private bool _isPlayerTurn = true;
 
     public CombatSystem(EventQueue eventQueue, Player player)
     {
@@ -24,13 +24,16 @@ public class CombatSystem
         }
     }
 
-    public void Update()
+    public void Update(AnimationSystem animationSystem)
     {
-        if (_currentMonster == null) 
+        if (_currentMonster == null)
         {
-            return; 
+            return;
         }
-        Console.SetCursorPosition(0, 0);
+
+        animationSystem.AnimationWalk(MonsterData.MonsterWalkFrames, 50);
+
+        Console.SetCursorPosition(50, 0);
         Console.WriteLine("====================");
         Console.WriteLine(_currentMonster.Name);
         Console.WriteLine($"HP: {_currentMonster.Health}");
