@@ -51,14 +51,25 @@ public class CombatSystem
             _monsterFrame = 0;
         }
 
-        // Console.SetCursorPosition(0, 50);
-        // Console.WriteLine("====================");
-        // Console.WriteLine(_currentMonster.Name);
-        // Console.WriteLine($"HP: {_currentMonster.Health}");
-        // Console.WriteLine("Игрок");
-        // Console.WriteLine($"HP: {_player.Health}");
-        // Console.WriteLine("1.Атаковать");
-        // Console.WriteLine("====================");
-        // Console.ReadKey();
+        Console.WriteLine("====================");
+        Console.WriteLine(_currentMonster.Name);
+        Console.WriteLine($"HP: {_currentMonster.Health}");
+        Console.WriteLine();
+        Console.WriteLine("Игрок");
+        Console.WriteLine($"HP: {_player.Health}");
+        Console.WriteLine();
+        Console.WriteLine("1.Атаковать");
+        Console.WriteLine("2.Побег");
+        Console.WriteLine("====================");
+        if (Console.KeyAvailable)
+        {
+            var consoleKeyInfo = Console.ReadKey(true);
+
+            // switch (consoleKeyInfo.Key)
+            // {
+            //     case "1":
+            //         break;
+            // }
+        }
     }
 }
