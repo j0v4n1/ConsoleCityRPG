@@ -1,48 +1,15 @@
-﻿using ConsoleCityRPG.Entities;
-
-namespace ConsoleCityRPG.Systems;
+﻿namespace ConsoleCityRPG.Systems;
 
 public class AnimationSystem
 {
-    public void AnimationWalk(string[][] entity, int speedAnimation)
+    public void DrawFrames(string[][] frames, int frameIndex, int framePositionX, int framePositionY)
     {
         int i = 0;
-        while (true)
+        foreach (var frame in frames[frameIndex])
         {
-            Console.SetCursorPosition(0, 0);
-
-            foreach (var line in entity[i])
-            {
-                Console.WriteLine(line);
-            }
-
+            Console.SetCursorPosition(framePositionX, framePositionY + i);
+            Console.WriteLine(frame);
             i++;
-
-            if (i >= entity.Length)
-                i = 0;
-
-            Thread.Sleep(speedAnimation);
-        }
-    }
-
-    public void AnimationAttack()
-    {
-        int i = 0;
-        while (true)
-        {
-            Console.SetCursorPosition(0, 0);
-
-            foreach (var line in PlayerData.PlayerAttackFrames[i])
-            {
-                Console.WriteLine(line);
-            }
-
-            i++;
-
-            if (i >= PlayerData.PlayerAttackFrames.Length)
-                i = 0;
-
-            Thread.Sleep(250);
         }
     }
 }

@@ -4,44 +4,56 @@ namespace ConsoleCityRPG.Entities
     {
         private static readonly string[] PlayerWalkFrame1 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            " / \\"
+            " / \\  "
         ];
 
         private static readonly string[] PlayerWalkFrame2 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            "  >\\"
+            "  >\\  "
         ];
 
         private static readonly string[] PlayerWalkFrame3 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            "  |\\"
+            "  |\\  "
         ];
 
         private static readonly string[] PlayerWalkFrame4 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            "  |>"
+            "  |>   "
         ];
 
         private static readonly string[] PlayerWalkFrame5 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            "  >\\"
+            "  >\\  "
         ];
 
         private static readonly string[] PlayerWalkFrame6 =
         [
-            "| o __",
+            "       ",
+            "       ",
+            "| o __ ",
             "T/|)__)",
-            "  |\\"
+            "  |\\  "
         ];
 
         public static readonly string[][] PlayerWalkFrames =
@@ -94,6 +106,11 @@ namespace ConsoleCityRPG.Entities
         public static readonly string[][] PlayerAttackFrames =
         [
             PlayerAttackFrame1, PlayerAttackFrame2, PlayerAttackFrame3, PlayerAttackFrame4
+        ];
+
+        public static readonly string[][] PlayerIdleFrames =
+        [
+            PlayerWalkFrame1
         ];
     }
 }

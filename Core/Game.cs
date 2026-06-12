@@ -16,7 +16,6 @@ public class Game
         var gameStateManager = new GameStateManager(eventQueue);
         var player = new Player();
         new QuestSystem(player, eventQueue);
-        new CombatSystem(eventQueue, player);
         var cityMap = new Map(MapData.City);
         var worldMap = new Map(MapData.World);
         var tavern = new Tavern(16, 2);
@@ -53,7 +52,7 @@ public class Game
             }
 
             Console.SetCursorPosition(40, 10);
-            Console.WriteLine(gameStateManager.GameState);
+            // Console.WriteLine(gameStateManager.GameState);
             switch (gameStateManager.GameState)
             {
                 case GameState.Exploration:
@@ -65,6 +64,7 @@ public class Game
                     break;
                 case GameState.Combat:
                     combatSystem.Update(animationSystem);
+                    Thread.Sleep(100);
                     break;
             }
         }
