@@ -9,10 +9,11 @@ public class Player
     public int CoordinateY { get; private set; } = 1;
     public int CoordinateX { get; private set; } = 1;
     public int Health { get; private set; } = 100;
-    private int _manaPoints = 100;
-    private int _gold = 100;
-    private int _attackPower = 5;
-    private int _defense = 5;
+    public int ManaPoints { get; private set; } = 100;
+    public int Gold { get; private set; } = 100;
+    public int AttackPower { get; private set; } = 5;
+    public int Defense { get; private set; } = 12;
+    public int Initiative { get; private set; } = 5;
     private List<Quest> Quests { get; set; } = [];
 
     public void ChangeCoordinates(int newX, int newY)
@@ -31,12 +32,17 @@ public class Player
 
     public void ShowPlayerInfo()
     {
-        ConsoleMessage.PlayerInfoMessage(_gold, Health, _manaPoints,
-            _attackPower, _defense, CoordinateX, CoordinateY);
+        ConsoleMessage.PlayerInfoMessage(Gold, Health, ManaPoints,
+            AttackPower, Defense, CoordinateX, CoordinateY);
     }
 
     public void AddQuest(Quest quest)
     {
         Quests.Add(quest);
+    }
+
+    public void OnAttacked(int attackPower)
+    {
+        Health -= attackPower;
     }
 }

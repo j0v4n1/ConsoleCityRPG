@@ -34,7 +34,8 @@ public class Game
         var mapManager = new MapManager(cityMap, cityBuildings, eventQueue);
         new MonsterSpawner(eventQueue, mapManager, MapData.World);
         var buildingSystem = new BuildingSystem(eventQueue);
-        var combatSystem = new CombatSystem(eventQueue, player);
+        var rollTheDiceSystem = new RollTheDiceSystem();
+        var combatSystem = new CombatSystem(eventQueue, player, rollTheDiceSystem);
         var animationSystem = new AnimationSystem();
         Console.Clear();
         Console.SetCursorPosition(0, 0);
@@ -63,8 +64,9 @@ public class Game
                     buildingSystem.Update(eventQueue);
                     break;
                 case GameState.Combat:
+                    Console.Clear();
                     combatSystem.Update(animationSystem);
-                    Thread.Sleep(100);
+                    Thread.Sleep(1000);
                     break;
             }
         }

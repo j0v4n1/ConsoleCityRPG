@@ -1,4 +1,5 @@
 ﻿using ConsoleCityRPG.Quests;
+using ConsoleCityRPG.Systems;
 
 namespace ConsoleCityRPG.Ui;
 
@@ -18,6 +19,23 @@ public static class ConsoleMessage
             Console.Write(
                 $"{quest.Objectives[i].Current} / {quest.Objectives[i].Required}");
         }
+    }
+
+    public static void CombatInfo(string monsterName, int monsterHealth, int playerHealth, string combatLog,
+        string combatState)
+    {
+        Console.WriteLine("====================");
+        Console.WriteLine(monsterName);
+        Console.WriteLine($"HP: {monsterHealth} ");
+        Console.WriteLine();
+        Console.WriteLine("Игрок");
+        Console.WriteLine($"HP: {playerHealth} ");
+        Console.WriteLine();
+        Console.WriteLine("1.Атаковать");
+        Console.WriteLine("2.Побег");
+        Console.WriteLine($"Комбат лог {combatLog}");
+        Console.WriteLine($"Комбат стейт {combatState}");
+        Console.WriteLine("====================");
     }
 
     public static void PlayerInfoMessage(int gold, int healthPoints,
